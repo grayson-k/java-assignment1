@@ -87,7 +87,7 @@ public class TechJobs {
 
         do {
 
-            System.out.println(menuHeader);
+            System.out.println("\n" + menuHeader);
 
             // Print available choices
             for (int j = 0; j < choiceKeys.length; j++) {
@@ -121,17 +121,19 @@ public class TechJobs {
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
         if (someJobs.isEmpty()) {
-            System.out.println("No Results");
+            System.out.print("No Results"); // Changed println to print
             return;
         }
 
-        for (HashMap<String, String> i : someJobs) {
+        for (int i = 0; i < someJobs.size(); i++) {
             System.out.println("*****");
-            for (Map.Entry<String, String> j : i.entrySet()) {
+            for (Map.Entry<String, String> j : someJobs.get(i).entrySet()) {
                 System.out.println(j.getKey() + ": " + j.getValue());
             }
             System.out.println("*****");
-            System.out.println();
+            if (i < someJobs.size() - 1) {
+                System.out.println();
+            }
         }
     }
 }
